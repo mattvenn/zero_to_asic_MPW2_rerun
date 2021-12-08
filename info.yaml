@@ -2,9 +2,9 @@
 project:
   description: "MPW4 rerun for Zero to ASIC course MPW2 submission"
   foundry: "SkyWater"
-  git_url: "https://github.com/efabless/caravel_project_example.git"
-  organization: "Efabless"
-  organization_url: "http://efabless.com"
+  git_url: "https://github.com/mattvenn/zero_to_asic_MPW2_rerun"
+  organization: "Zero to ASIC course"
+  organization_url: "http://zerotoasiccourse.com"
   owner: "Matt Venn"
   process: "SKY130"
   project_name: "Zero to ASIC course MPW2 rerun"

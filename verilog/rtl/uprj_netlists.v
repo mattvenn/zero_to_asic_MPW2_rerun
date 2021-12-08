@@ -1,4 +1,6 @@
-// SPDX-FileCopyrightText: 2020 Efabless Corporation
+// SPDX-FileCopyrightText: 
+// 2020 Efabless Corporation
+// 2021 Matt Venn
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,8 +23,16 @@
     // Assume default net type to be wire because GL netlists don't have the wire definitions
     `default_nettype wire
     `include "gl/user_project_wrapper.v"
-    `include "gl/user_proj_example.v"
+    `include "gl/wrapped_a51.lvs.powered.v"
+
 `else
     `include "user_project_wrapper.v"
-    `include "user_proj_example.v"
+    //  2 A5/1 Wishbone                  : /home/matt/work/asic-workshop/shuttle3-mpw-3/openlane/designs/a5-1-wb-macro
+	`include "a5-1-wb-macro/src/wrapper.v"
+	`include "a5-1-wb-macro/src/Fifo.v"
+	`include "a5-1-wb-macro/src/A5If.v"
+	`include "a5-1-wb-macro/src/A5Generator.v"
+	`include "a5-1-wb-macro/src/A5LFSR.v"
+	`include "a5-1-wb-macro/src/A5Buffer.v"
+
 `endif

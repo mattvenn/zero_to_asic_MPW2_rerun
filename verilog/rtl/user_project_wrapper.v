@@ -26,21 +26,24 @@
  * example should be removed and replaced with the actual
  * user project.
  *
+ * THIS FILE HAS BEEN GENERATED USING multi_tools_project CODEGEN
+ * IF YOU NEED TO MAKE EDITS TO IT, EDIT codegen/caravel_iface_header.txt
+ *
  *-------------------------------------------------------------
  */
 
 module user_project_wrapper #(
     parameter BITS = 32
-) (
+)(
 `ifdef USE_POWER_PINS
-    inout vdda1,	// User area 1 3.3V supply
-    inout vdda2,	// User area 2 3.3V supply
-    inout vssa1,	// User area 1 analog ground
-    inout vssa2,	// User area 2 analog ground
-    inout vccd1,	// User area 1 1.8V supply
-    inout vccd2,	// User area 2 1.8v supply
-    inout vssd1,	// User area 1 digital ground
-    inout vssd2,	// User area 2 digital ground
+    inout vdda1,       // User area 1 3.3V supply
+    inout vdda2,       // User area 2 3.3V supply
+    inout vssa1,       // User area 1 analog ground
+    inout vssa2,       // User area 2 analog ground
+    inout vccd1,       // User area 1 1.8V supply
+    inout vccd2,       // User area 2 1.8v supply
+    inout vssd1,       // User area 1 digital ground
+    inout vssd2,       // User area 2 digital ground
 `endif
 
     // Wishbone Slave ports (WB MI A)
@@ -78,46 +81,223 @@ module user_project_wrapper #(
     output [2:0] user_irq
 );
 
-/*--------------------------------------*/
-/* User project is instantiated  here   */
-/*--------------------------------------*/
 
-user_proj_example mprj (
-`ifdef USE_POWER_PINS
-	.vccd1(vccd1),	// User area 1 1.8V power
-	.vssd1(vssd1),	// User area 1 digital ground
-`endif
+    // generate active wires
+    wire [31: 0] active;
+    assign active = la_data_in[63:32];
 
-    .wb_clk_i(wb_clk_i),
-    .wb_rst_i(wb_rst_i),
+    wire [2:0] irq;
+    assign user_irq = irq;
 
-    // MGMT SoC Wishbone Slave
+    wrapper_fibonacci wrapper_fibonacci_3(
+        `ifdef USE_POWER_PINS
+        .vccd1 (vccd1),
+        .vssd1 (vssd1),
+        `endif
+        .wb_clk_i (wb_clk_i),
+        .active (active[3]),
+        .io_in (io_in[37:0]),
+        .io_out (io_out[37:0]),
+        .io_oeb (io_oeb[37:0]),
+        .la_data_in (la_data_in[31:0]),
+        .la_data_out (la_data_out[31:0]),
+        .la_oenb (la_oenb[31:0]),
+        .irq (irq[2:0]),
+        .user_clock2 (user_clock2),
+        .wb_rst_i (wb_rst_i),
+        .wbs_stb_i (wbs_stb_i),
+        .wbs_cyc_i (wbs_cyc_i),
+        .wbs_we_i (wbs_we_i),
+        .wbs_sel_i (wbs_sel_i[3:0]),
+        .wbs_dat_i (wbs_dat_i[31:0]),
+        .wbs_adr_i (wbs_adr_i[31:0]),
+        .wbs_ack_o (wbs_ack_o),
+        .wbs_dat_o (wbs_dat_o[31:0])
+    );
 
-    .wbs_cyc_i(wbs_cyc_i),
-    .wbs_stb_i(wbs_stb_i),
-    .wbs_we_i(wbs_we_i),
-    .wbs_sel_i(wbs_sel_i),
-    .wbs_adr_i(wbs_adr_i),
-    .wbs_dat_i(wbs_dat_i),
-    .wbs_ack_o(wbs_ack_o),
-    .wbs_dat_o(wbs_dat_o),
+    wrapped_quad_pwm_fet_drivers wrapped_quad_pwm_fet_drivers_5(
+        `ifdef USE_POWER_PINS
+        .vccd1 (vccd1),
+        .vssd1 (vssd1),
+        `endif
+        .wb_clk_i (wb_clk_i),
+        .active (active[5]),
+        .io_in (io_in[37:0]),
+        .io_out (io_out[37:0]),
+        .io_oeb (io_oeb[37:0]),
+        .la_data_in (la_data_in[31:0]),
+        .la_data_out (la_data_out[31:0]),
+        .la_oenb (la_oenb[31:0]),
+        .irq (irq[2:0]),
+        .user_clock2 (user_clock2),
+        .wb_rst_i (wb_rst_i),
+        .wbs_stb_i (wbs_stb_i),
+        .wbs_cyc_i (wbs_cyc_i),
+        .wbs_we_i (wbs_we_i),
+        .wbs_sel_i (wbs_sel_i[3:0]),
+        .wbs_dat_i (wbs_dat_i[31:0]),
+        .wbs_adr_i (wbs_adr_i[31:0]),
+        .wbs_ack_o (wbs_ack_o),
+        .wbs_dat_o (wbs_dat_o[31:0])
+    );
 
-    // Logic Analyzer
+    wrapped_memLCDdriver wrapped_memLCDdriver_7(
+        `ifdef USE_POWER_PINS
+        .vccd1 (vccd1),
+        .vssd1 (vssd1),
+        `endif
+        .wb_clk_i (wb_clk_i),
+        .active (active[7]),
+        .io_in (io_in[37:0]),
+        .io_out (io_out[37:0]),
+        .io_oeb (io_oeb[37:0]),
+        .la_data_in (la_data_in[31:0]),
+        .la_data_out (la_data_out[31:0]),
+        .la_oenb (la_oenb[31:0]),
+        .irq (irq[2:0]),
+        .user_clock2 (user_clock2),
+        .wb_rst_i (wb_rst_i),
+        .wbs_stb_i (wbs_stb_i),
+        .wbs_cyc_i (wbs_cyc_i),
+        .wbs_we_i (wbs_we_i),
+        .wbs_sel_i (wbs_sel_i[3:0]),
+        .wbs_dat_i (wbs_dat_i[31:0]),
+        .wbs_adr_i (wbs_adr_i[31:0]),
+        .wbs_ack_o (wbs_ack_o),
+        .wbs_dat_o (wbs_dat_o[31:0])
+    );
 
-    .la_data_in(la_data_in),
-    .la_data_out(la_data_out),
-    .la_oenb (la_oenb),
+    wrapped_qarma wrapped_qarma_8(
+        `ifdef USE_POWER_PINS
+        .vccd1 (vccd1),
+        .vssd1 (vssd1),
+        `endif
+        .wb_clk_i (wb_clk_i),
+        .active (active[8]),
+        .io_in (io_in[37:0]),
+        .io_out (io_out[37:0]),
+        .io_oeb (io_oeb[37:0]),
+        .la_data_in (la_data_in[31:0]),
+        .la_data_out (la_data_out[31:0]),
+        .la_oenb (la_oenb[31:0]),
+        .irq (irq[2:0]),
+        .user_clock2 (user_clock2),
+        .wb_rst_i (wb_rst_i),
+        .wbs_stb_i (wbs_stb_i),
+        .wbs_cyc_i (wbs_cyc_i),
+        .wbs_we_i (wbs_we_i),
+        .wbs_sel_i (wbs_sel_i[3:0]),
+        .wbs_dat_i (wbs_dat_i[31:0]),
+        .wbs_adr_i (wbs_adr_i[31:0]),
+        .wbs_ack_o (wbs_ack_o),
+        .wbs_dat_o (wbs_dat_o[31:0])
+    );
 
-    // IO Pads
+    wrapped_chacha_wb_accel wrapped_chacha_wb_accel_9(
+        `ifdef USE_POWER_PINS
+        .vccd1 (vccd1),
+        .vssd1 (vssd1),
+        `endif
+        .wb_clk_i (wb_clk_i),
+        .active (active[9]),
+        .io_in (io_in[37:0]),
+        .io_out (io_out[37:0]),
+        .io_oeb (io_oeb[37:0]),
+        .la_data_in (la_data_in[31:0]),
+        .la_data_out (la_data_out[31:0]),
+        .la_oenb (la_oenb[31:0]),
+        .irq (irq[2:0]),
+        .user_clock2 (user_clock2),
+        .wb_rst_i (wb_rst_i),
+        .wbs_stb_i (wbs_stb_i),
+        .wbs_cyc_i (wbs_cyc_i),
+        .wbs_we_i (wbs_we_i),
+        .wbs_sel_i (wbs_sel_i[3:0]),
+        .wbs_dat_i (wbs_dat_i[31:0]),
+        .wbs_adr_i (wbs_adr_i[31:0]),
+        .wbs_ack_o (wbs_ack_o),
+        .wbs_dat_o (wbs_dat_o[31:0])
+    );
 
-    .io_in (io_in),
-    .io_out(io_out),
-    .io_oeb(io_oeb),
+    fbless_graphics_core fbless_graphics_core_10(
+        `ifdef USE_POWER_PINS
+        .vccd1 (vccd1),
+        .vssd1 (vssd1),
+        `endif
+        .wb_clk_i (wb_clk_i),
+        .active (active[10]),
+        .io_in (io_in[37:0]),
+        .io_out (io_out[37:0]),
+        .io_oeb (io_oeb[37:0]),
+        .la_data_in (la_data_in[31:0]),
+        .la_data_out (la_data_out[31:0]),
+        .la_oenb (la_oenb[31:0]),
+        .irq (irq[2:0]),
+        .user_clock2 (user_clock2),
+        .wb_rst_i (wb_rst_i),
+        .wbs_stb_i (wbs_stb_i),
+        .wbs_cyc_i (wbs_cyc_i),
+        .wbs_we_i (wbs_we_i),
+        .wbs_sel_i (wbs_sel_i[3:0]),
+        .wbs_dat_i (wbs_dat_i[31:0]),
+        .wbs_adr_i (wbs_adr_i[31:0]),
+        .wbs_ack_o (wbs_ack_o),
+        .wbs_dat_o (wbs_dat_o[31:0])
+    );
 
-    // IRQ
-    .irq(user_irq)
-);
+    wrapped_pong wrapped_pong_4(
+        `ifdef USE_POWER_PINS
+        .vccd1 (vccd1),
+        .vssd1 (vssd1),
+        `endif
+        .wb_clk_i (wb_clk_i),
+        .active (active[4]),
+        .io_in (io_in[37:0]),
+        .io_out (io_out[37:0]),
+        .io_oeb (io_oeb[37:0]),
+        .la_data_in (la_data_in[31:0]),
+        .la_data_out (la_data_out[31:0]),
+        .la_oenb (la_oenb[31:0]),
+        .irq (irq[2:0]),
+        .user_clock2 (user_clock2),
+        .wb_rst_i (wb_rst_i),
+        .wbs_stb_i (wbs_stb_i),
+        .wbs_cyc_i (wbs_cyc_i),
+        .wbs_we_i (wbs_we_i),
+        .wbs_sel_i (wbs_sel_i[3:0]),
+        .wbs_dat_i (wbs_dat_i[31:0]),
+        .wbs_adr_i (wbs_adr_i[31:0]),
+        .wbs_ack_o (wbs_ack_o),
+        .wbs_dat_o (wbs_dat_o[31:0])
+    );
+
+    wrapped_newmot wrapped_newmot_15(
+        `ifdef USE_POWER_PINS
+        .vccd1 (vccd1),
+        .vssd1 (vssd1),
+        `endif
+        .wb_clk_i (wb_clk_i),
+        .active (active[15]),
+        .io_in (io_in[37:0]),
+        .io_out (io_out[37:0]),
+        .io_oeb (io_oeb[37:0]),
+        .la_data_in (la_data_in[31:0]),
+        .la_data_out (la_data_out[31:0]),
+        .la_oenb (la_oenb[31:0]),
+        .irq (irq[2:0]),
+        .user_clock2 (user_clock2),
+        .wb_rst_i (wb_rst_i),
+        .wbs_stb_i (wbs_stb_i),
+        .wbs_cyc_i (wbs_cyc_i),
+        .wbs_we_i (wbs_we_i),
+        .wbs_sel_i (wbs_sel_i[3:0]),
+        .wbs_dat_i (wbs_dat_i[31:0]),
+        .wbs_adr_i (wbs_adr_i[31:0]),
+        .wbs_ack_o (wbs_ack_o),
+        .wbs_dat_o (wbs_dat_o[31:0])
+    );
+
+    // end of module instantiation
 
 endmodule	// user_project_wrapper
-
 `default_nettype wire
