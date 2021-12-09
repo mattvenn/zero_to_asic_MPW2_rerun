@@ -1,44 +1,22 @@
 # Caravel User Project
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![UPRJ_CI](https://github.com/efabless/caravel_project_example/actions/workflows/user_project_ci.yml/badge.svg)](https://github.com/efabless/caravel_project_example/actions/workflows/user_project_ci.yml) [![Caravel Build](https://github.com/efabless/caravel_project_example/actions/workflows/caravel_build.yml/badge.svg)](https://github.com/efabless/caravel_project_example/actions/workflows/caravel_build.yml)
-
 ---
 
 # Multi Project Index
 
-This index was made with [multi project tools](https://github.com/mattvenn/multi_project_tools) at commit d1defefbe093b2b029b623f4aaf5cbe9fb362412
+This index was made with [multi project tools](https://github.com/mattvenn/multi_project_tools) at commit 9589f7f233261ebe0da068303e377f373b0068d0
 
 The OpenLANE config was generated with this command:
 
     ./multi_tool.py --create-openlane-config --copy-gds  --force-delete
 
-Using this [configuration](projects.yaml)
-
-![multi macro](pics/multi_macro.png)
-
-## RGB Mixer
-
-* Author: Matt Venn
-* Github: [https://github.com/mattvenn/wrapped_rgb_mixer/tree/caravel-mpw-two-c](https://github.com/mattvenn/wrapped_rgb_mixer/tree/caravel-mpw-two-c)
-* commit: 19a96ea
-* Description: reads 3 encoders and generates PWM signals to drive an RGB LED
-
-![RGB Mixer](pics/schematic.jpg)
-
-## Frequency counter
-
-* Author: Matt Venn
-* Github: [https://github.com/mattvenn/wrapped_frequency_counter/tree/caravel-mpw-two-c](https://github.com/mattvenn/wrapped_frequency_counter/tree/caravel-mpw-two-c)
-* commit: c4aefe6
-* Description: Counts pulses on input and displays frequency on 2  seven segment displays
-
-![Frequency counter](pics/frequency_counter.png)
+![multi macro](pics/multi_macro_annotated.png)
 
 ## A5/1 Wishbone
 
 * Author: Jamie Iles
-* Github: [https://github.com/jamieiles/a5-1-wb-macro](https://github.com/jamieiles/a5-1-wb-macro)
-* commit: 0528740
+* Github: https://github.com/jamieiles/a5-1-wb-macro
+* commit: 70fd725d4ee73b60ac5915f57b364931bb2d57ce
 * Description: A5/1 cryto block connected via wishbone to PicoRV32
 
 ![A5/1 Wishbone](pics/a5macro.png)
@@ -46,8 +24,8 @@ Using this [configuration](projects.yaml)
 ## Fibonacci
 
 * Author: Konrad Rzeszutek Wilk
-* Github: [https://github.com/konradwilk/fibonacci](https://github.com/konradwilk/fibonacci)
-* commit: 3dcdd1b
+* Github: https://github.com/konradwilk/fibonacci
+* commit: 9a6416b9ed78bdbb10b3c4b55adac8ea9ae0e9d5
 * Description: Fibonacci emitter connected to [37:8] and controlled via wishbone
 
 ![Fibonacci](pics/fibonacci.png)
@@ -55,8 +33,8 @@ Using this [configuration](projects.yaml)
 ## Quad PWM FET Drivers
 
 * Author: Chris DePalm
-* Github: [https://github.com/ChrisDePalm/wrapped_quad_pwm_fet_drivers.git](https://github.com/ChrisDePalm/wrapped_quad_pwm_fet_drivers.git)
-* commit: 547d9e1
+* Github: https://github.com/ChrisDePalm/wrapped_quad_pwm_fet_drivers
+* commit: ddcb6f1e6cf6afa01c3a0783a6d0ee861a67b3c2
 * Description: 4 PWM FET Drivers for Power Applications
 
 ![Quad PWM FET Drivers](pics/wrapped_quad_pwm_fet_drivers.gds.png)
@@ -64,8 +42,8 @@ Using this [configuration](projects.yaml)
 ## memLCDdriver
 
 * Author: Matt Beach
-* Github: [https://github.com/matt-beach/wrapped_memLCDdriver.git](https://github.com/matt-beach/wrapped_memLCDdriver.git)
-* commit: 07e07f9
+* Github: https://github.com/matt-beach/wrapped_memLCDdriver
+* commit: 43489a15d43f18dfcf133afba92e90cea578adad
 * Description: SPI to 64-color memory LCD interface
 
 ![memLCDdriver](pics/wrapped_memLCDdriver.gds.png)
@@ -73,8 +51,8 @@ Using this [configuration](projects.yaml)
 ## QARMA-64 Accelerator
 
 * Author: Viktor H. Brange
-* Github: [https://github.com/vbrange/verilog_qarma](https://github.com/vbrange/verilog_qarma)
-* commit: 8a10211
+* Github: https://github.com/vbrange/wrapped_qarma
+* commit: 35bad4464e4bcc45bb1cbfa9cb308338195268fe
 * Description: Implementation of QARMA 64
 
 ![QARMA-64 Accelerator](pics/qarma.png)
@@ -82,8 +60,8 @@ Using this [configuration](projects.yaml)
 ## ChaCha20 Accelerator
 
 * Author: Richard Petri
-* Github: [https://github.com/rpls/wrapped_chacha_wb_accel](https://github.com/rpls/wrapped_chacha_wb_accel)
-* commit: a312d9d
+* Github: https://github.com/rpls/wrapped_chacha_wb_accel
+* commit: 99044467b06d30a590c90134bbcf446e411e570a
 * Description: A minimal Wishbone connected ChaCha20 accelerator
 
 ![ChaCha20 Accelerator](pics/core.png)
@@ -91,8 +69,8 @@ Using this [configuration](projects.yaml)
 ## Framebufferless Video Core
 
 * Author: Tom Gwozdz
-* Github: [https://github.com/tomgwozdz/fbless-graphics-core](https://github.com/tomgwozdz/fbless-graphics-core)
-* commit: fdd7f04
+* Github: https://github.com/tomgwozdz/wrapped-fbless-graphics-core
+* commit: 7297133c9f7aaf617fa59591dacb3c80ded45667
 * Description: A framebufferless VGA video generator, under CPU control
 
 ![Framebufferless Video Core](pics/fbless_graphics_core.gds.png)
@@ -100,63 +78,18 @@ Using this [configuration](projects.yaml)
 ## Pong
 
 * Author: Erik van Zijst
-* Github: [https://github.com/erikvanzijst/wrapped_pong.git](https://github.com/erikvanzijst/wrapped_pong.git)
-* commit: 8506f61
+* Github: https://github.com/erikvanzijst/wrapped_pong
+* commit: 41cdd8cad3c281c723b64981803295b8960bab01
 * Description: A hardware implementation of Pong
 
 ![Pong](pics/pong.jpg)
 
-## Hack soc
-
-* Author: Maximo Balestrini
-* Github: [https://github.com/mbalestrini/wrapped_hack_soc](https://github.com/mbalestrini/wrapped_hack_soc)
-* commit: 416d3ec
-* Description: Hardware implementation of the Hack Computer from the Nand to Tetris courses
-
-![Hack soc](pics/project.jpg)
-
-## gfxdemo
-
-* Author: Konrad Beckmann
-* Github: [https://github.com/kbeckmann/wrapped_gfxdemo](https://github.com/kbeckmann/wrapped_gfxdemo)
-* commit: 432874a
-* Description: gfxdemo
-
-![gfxdemo](pics/gfxdemo.png)
-
-## Wishbone HyperRAM
-
-* Author: Pawel Sitarz
-* Github: [https://github.com/embelon/wrapped_wb_hyperram](https://github.com/embelon/wrapped_wb_hyperram)
-* commit: 5e793ea
-* Description: Simple HyperRAM driver accesible on Wishbone bus
-
-![Wishbone HyperRAM](pics/HyperRAM_WriteMemorySpace.png)
-
 ## Newmot SoC
 
 * Author: Charles-Henri Mousset
-* Github: [https://github.com/chmousset/caravel_multi_newmot](https://github.com/chmousset/caravel_multi_newmot)
-* commit: e34a612
+* Github: https://github.com/chmousset/caravel_multi_newmot
+* commit: 031ba67a6c9d9b16c6ed732da0feb53d8f4d1424
 * Description: Simple SoC dmonstrating a Stepper Motor step/dir generator, and litex wishbone / uart / pwm
 
 ![Newmot SoC](pics/newmot.png)
-
-## hoggephase
-
-* Author: David Hulton
-* Github: [https://github.com/h1kari/wrapped_hoggephase_project](https://github.com/h1kari/wrapped_hoggephase_project)
-* commit: 3dbdd48
-* Description: Hogge Phase EMFI/BBI Glitch Detector
-
-![hoggephase](pics/hpcore.png)
-
-## bfloat16_fma
-
-* Author: Author
-* Github: [https://github.com/etalian/mensa](https://github.com/etalian/mensa)
-* commit: 2b61fe3
-* Description: dual bfloat16 fused multiply-add
-
-![bfloat16_fma](pics/wrapped_bfloat16.gds.png)
 
